@@ -1,0 +1,136 @@
+<% layout("/layouts/boilerplate.ejs") %>
+
+<div class="add-asset-page">
+
+    <!-- HEADER -->
+    <div class="add-asset-header">
+
+        <span class="add-asset-label">
+            ADD ASSET
+        </span>
+
+        <h1>
+            Add New Asset
+        </h1>
+
+        <p>
+            Add a new <strong><%= name %></strong> album design to your collection.
+        </p>
+
+    </div>
+
+
+    <!-- FORM CARD -->
+    <div class="add-asset-card">
+
+        <form
+            action="/somnath/store?name=<%= name %>"
+            method="post"
+            class="add-asset-form"
+            enctype="multipart/form-data"
+        >
+
+            <div class="form-group">
+
+                <label for="assetUrl">
+                    Image URL
+                </label>
+
+                <input
+                    type="file"
+                    id="assetUrl"
+                    name="url"
+                    placeholder="https://example.com/your-image.jpg"
+                    autocomplete="off"
+                    required
+                >
+
+                <p class="form-help">
+                    Enter the URL of the image you want to add.
+                </p>
+
+            </div>
+
+
+            <!-- PREVIEW -->
+            <div class="url-preview" id="urlPreview">
+
+                <div class="preview-placeholder">
+                    <i class="bi bi-image"></i>
+
+                    <span>
+                        Image preview will appear here
+                    </span>
+                </div>
+
+                <img
+                    id="previewImage"
+                    src=""
+                    alt="Image Preview"
+                >
+
+            </div>
+
+
+            <!-- ACTIONS -->
+            <div class="add-asset-actions">
+
+                <a
+                    href="/somnath/store/<%= name %>/group"
+                    class="add-asset-btn add-asset-cancel"
+                >
+                    Cancel
+                </a>
+
+                <button
+                    type="submit"
+                    class="add-asset-btn add-asset-submit"
+                >
+                    <i class="bi bi-plus-lg"></i>
+                    Add Asset
+                </button>
+
+            </div>
+
+        </form>
+
+    </div>
+
+</div>
+
+<script>
+    const assetInput = document.getElementById("assetUrl");
+    const previewImage = document.getElementById("previewImage");
+    const placeholder = document.querySelector(".preview-placeholder");
+
+    assetInput.addEventListener("change", function () {
+        const file = this.files[0];
+
+        if (!file) {
+            previewImage.style.display = "none";
+            placeholder.style.display = "flex";
+            return;
+        }
+
+        // Check if selected file is an image
+        if (!file.type.startsWith("image/")) {
+            previewImage.style.display = "none";
+            placeholder.style.display = "flex";
+            alert("Please select a valid image file.");
+            this.value = "";
+            return;
+        }
+
+        // Create temporary URL for preview
+        const imageUrl = URL.createObjectURL(file);
+
+        previewImage.src = imageUrl;
+        previewImage.style.display = "block";
+        placeholder.style.display = "none";
+
+        // Release the temporary URL after image loads
+        previewImage.onload = function () {
+            URL.revokeObjectURL(imageUrl);
+        };
+    });
+</script>

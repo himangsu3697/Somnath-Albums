@@ -1,0 +1,99 @@
+<nav class="navbar">
+    <div class="navbar-container">
+
+        <!-- Logo -->
+        <a href="/somnath/home" class="navbar-logo">
+            <img src="/logo.png" alt="Somnath Albums">
+        </a>
+
+        <!-- Desktop Navigation -->
+        <div class="navbar-menu" id="navbarMenu">
+
+            <a href="/somnath/home" class="nav-link">Home</a>
+            <a href="/somnath/store" class="nav-link">Store</a>
+            <a href="/somnath/about" class="nav-link">About</a>
+            <a href="/somnath/contact" class="nav-link">Contact Us</a>
+            <a href="https://www.behance.net/somnathtantubai" class="nav-link">Portfolio</a>
+
+            <button class="search-btn" aria-label="Search">
+                <i class="fa-solid fa-magnifying-glass"></i>
+            </button>
+
+            <!-- AUTH BUTTONS -->
+            <% if (currentUser) { %>
+
+                <!-- User is logged in -->
+                <span class="nav-user">
+                    <i class="fa-solid fa-user"></i>
+                    <%= currentUser.username.charAt(0).toUpperCase() + currentUser.username.slice(1) %>
+                </span>
+
+                <form action="/somnath/user/logout" method="POST" class="logout-form">
+                    <button type="submit" class="nav-auth-btn logout-btn">
+                        Logout
+                    </button>
+                </form>
+
+            <% } else { %>
+
+                <!-- User is NOT logged in -->
+                <a href="/somnath/user/login" class="nav-auth-btn login-btn">
+                    Login
+                </a>
+
+                <a href="/somnath/user/signup" class="nav-auth-btn signup-btn">
+                    Signup
+                </a>
+
+            <% } %>
+
+        </div>
+
+        <!-- Mobile Hamburger -->
+        <button
+            class="menu-toggle"
+            id="menuToggle"
+            aria-label="Open navigation"
+            aria-expanded="false"
+        >
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+
+    </div>
+</nav>
+
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+
+    const menuToggle = document.getElementById("menuToggle");
+    const navbarMenu = document.getElementById("navbarMenu");
+
+    menuToggle.addEventListener("click", () => {
+
+        const isOpen = navbarMenu.classList.toggle("active");
+
+        menuToggle.classList.toggle("active", isOpen);
+
+        menuToggle.setAttribute(
+            "aria-expanded",
+            isOpen ? "true" : "false"
+        );
+    });
+
+    // Close mobile menu after clicking a link
+    document.querySelectorAll(".nav-link, .nav-auth-btn").forEach(link => {
+
+        link.addEventListener("click", () => {
+
+            navbarMenu.classList.remove("active");
+            menuToggle.classList.remove("active");
+
+            menuToggle.setAttribute("aria-expanded", "false");
+        });
+
+    });
+
+});
+</script>

@@ -1,0 +1,407 @@
+<% layout("/layouts/boilerplate.ejs") %>
+
+    <div class="contact-page">
+
+        <!-- =========================
+         HERO SECTION
+    ========================== -->
+        <section class="contact-hero">
+
+            <div class="contact-hero-content">
+
+                <span class="contact-tag">
+                    GET IN TOUCH
+                </span>
+
+                <h1>
+                    Let's Create
+                    <span>Something Beautiful</span>
+                    Together
+                </h1>
+
+                <p>
+                    Have photographs waiting to become a beautiful album?
+                    Tell us about your project and let's turn your memories
+                    into something you'll treasure forever.
+                </p>
+
+            </div>
+
+
+            <div class="contact-hero-decoration">
+
+                <div class="contact-circle contact-circle-one"></div>
+                <div class="contact-circle contact-circle-two"></div>
+
+                <div class="contact-photo-frame">
+
+                    <i class="bi bi-chat-heart"></i>
+
+                    <span>
+                        YOUR STORY
+                    </span>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =========================
+         CONTACT SECTION
+    ========================== -->
+        <section class="contact-main">
+
+            <!-- LEFT SIDE -->
+            <div class="contact-info">
+
+                <span class="section-label">
+                    CONTACT SOMNATH ALBUMS
+                </span>
+
+                <h2>
+                    We'd Love To
+                    <span>Hear From You</span>
+                </h2>
+
+                <p class="contact-description">
+                    Whether you are planning a wedding album, pre-wedding
+                    album or simply want to give your photographs a beautiful
+                    new look, we're here to help.
+                </p>
+
+
+                <!-- CONTACT DETAILS -->
+                <div class="contact-details">
+
+                    <div class="contact-detail">
+
+                        <div class="contact-detail-icon">
+                            <i class="bi bi-envelope"></i>
+                        </div>
+
+                        <div>
+                            <span>Email</span>
+
+                            <a href="mailto:somnathalbum9@gmail.com">
+                                somnathalbum9@gmail.com
+                            </a>
+                        </div>
+
+                    </div>
+
+
+                    <div class="contact-detail">
+
+                        <div class="contact-detail-icon">
+                            <i class="bi bi-telephone"></i>
+                        </div>
+
+                        <div>
+                            <span>Phone</span>
+
+                            <a href="tel:+919608869923">
+                                +91 9608869923
+                            </a>
+                        </div>
+
+                    </div>
+
+
+                    <div class="contact-detail">
+
+                        <div class="contact-detail-icon">
+                            <i class="bi bi-geo-alt"></i>
+                        </div>
+
+                        <div>
+                            <span>Location</span>
+
+                            <p>
+                                India
+                            </p>
+                        </div>
+
+                    </div>
+
+
+                    <div class="contact-detail">
+
+                        <div class="contact-detail-icon">
+                            <i class="bi bi-clock"></i>
+                        </div>
+
+                        <div>
+                            <span>Working Hours</span>
+
+                            <p>
+                                Monday - Saturday<br>
+                                10:00 AM - 10:00 PM
+                            </p>
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <!-- SOCIAL LINKS -->
+                <div class="contact-social">
+
+                    <span>
+                        FOLLOW US
+                    </span>
+
+                    <div class="contact-social-links">
+
+                        <a href="https://www.facebook.com/somnath.tantubau/" aria-label="Facebook">
+                            <i class="bi bi-facebook"></i>
+                        </a>
+
+                        <a href="https://www.instagram.com/somnathalbums?stkn=MWpiZDEzcWVkazd1Yw%3D%3D"
+                            aria-label="Instagram">
+                            <i class="bi bi-instagram"></i>
+                        </a>
+
+                        <a href="https://wa.me/9608869923?text=<%encodeURIComponent(" Hi Somnath Albums")%>"
+                            aria-label="WhatsApp">
+                            <i class="bi bi-whatsapp"></i>
+                        </a>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- =========================
+             CONTACT FORM
+        ========================== -->
+            <div class="contact-form-wrapper" id="contact-form">
+
+                <div class="contact-form-header">
+
+                    <span class="section-label">
+                        SEND A MESSAGE
+                    </span>
+
+                    <h2>
+                        Tell Us About
+                        <span>Your Project</span>
+                    </h2>
+
+                </div>
+
+
+                <form action="/somnath/contact" method="POST" class="contact-form">
+
+                    <div class="form-row">
+
+                        <div class="form-group">
+
+                            <label for="name">
+                                Your Name
+                            </label>
+
+                            <input type="text" id="name" name="name" placeholder="Enter your name" required>
+
+                        </div>
+
+
+                        <div class="form-group">
+
+                            <label for="phone">
+                                Phone Number
+                            </label>
+
+                            <input type="tel" id="phone" name="phone" placeholder="Enter your phone number" required>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label for="email">
+                            Email Address
+                        </label>
+
+                        <input type="email" id="email" name="email" placeholder="Enter your email address" required>
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label for="service">
+                            What Do You Need?
+                        </label>
+
+                        <select id="service" name="service" required>
+
+                            <option value="" disabled selected>
+                                Select a service
+                            </option>
+
+                            <option value="album-designing">
+                                Album Designing
+                            </option>
+
+                            <option value="photo-editing">
+                                Photo Editing
+                            </option>
+
+                            <option value="wedding-album">
+                                Wedding Album
+                            </option>
+
+                            <option value="pre-wedding-album">
+                                Pre-Wedding Album
+                            </option>
+
+                            <option value="other">
+                                Other
+                            </option>
+
+                        </select>
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label for="message">
+                            Tell Us More
+                        </label>
+
+                        <textarea id="message" name="message" rows="6"
+                            placeholder="Tell us about your album, event or project..." required></textarea>
+
+                    </div>
+
+
+                    <button type="submit" class="contact-submit">
+
+                        Send Message
+
+                        <i class="bi bi-arrow-right"></i>
+
+                    </button>
+
+                </form>
+
+            </div>
+
+        </section>
+
+
+        <!-- =========================
+         WHY WORK WITH US
+    ========================== -->
+        <section class="contact-bottom">
+
+            <div class="contact-bottom-heading">
+
+                <span class="section-label">
+                    WHY WORK WITH US
+                </span>
+
+                <h2>
+                    Your Memories Deserve
+                    <span>Beautiful Design</span>
+                </h2>
+
+            </div>
+
+
+            <div class="contact-benefits">
+
+                <div class="contact-benefit">
+
+                    <div class="benefit-icon">
+                        <i class="bi bi-palette"></i>
+                    </div>
+
+                    <h3>
+                        Creative Designs
+                    </h3>
+
+                    <p>
+                        Every album is thoughtfully designed around
+                        your photographs and story.
+                    </p>
+
+                </div>
+
+
+                <div class="contact-benefit">
+
+                    <div class="benefit-icon">
+                        <i class="bi bi-stars"></i>
+                    </div>
+
+                    <h3>
+                        Premium Editing
+                    </h3>
+
+                    <p>
+                        We carefully edit your photographs to give
+                        them a polished and timeless appearance.
+                    </p>
+
+                </div>
+
+
+                <div class="contact-benefit">
+
+                    <div class="benefit-icon">
+                        <i class="bi bi-heart"></i>
+                    </div>
+
+                    <h3>
+                        Made With Care
+                    </h3>
+
+                    <p>
+                        We treat every photograph as an important
+                        part of your personal story.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =========================
+         CTA
+    ========================== -->
+        <section class="contact-cta">
+
+            <div>
+
+                <span class="section-label">
+                    SOMNATH ALBUMS
+                </span>
+
+                <h2>
+                    Let's Turn Your
+                    <span>Memories Into Art.</span>
+                </h2>
+
+            </div>
+
+
+            <a href="#contact-form" class="cta-button">
+                Start Your Project
+
+                <i class="bi bi-arrow-right"></i>
+            </a>
+
+        </section>
+
+    </div>

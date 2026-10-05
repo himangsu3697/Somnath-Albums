@@ -1,0 +1,283 @@
+<% layout("/layouts/boilerplate.ejs") %>
+
+<div class="login-page">
+
+    <div class="login-container">
+
+        <!-- LEFT SIDE -->
+        <div class="login-info">
+            <span class="login-small-title">SOMNATH ALBUMS</span>
+
+            <h1>
+                Welcome<br>
+                <span>back.</span>
+            </h1>
+
+            <p>
+                Sign in to continue managing your album designs,
+                creative assets and collections.
+            </p>
+
+            <div class="login-features">
+
+                <div class="login-feature">
+                    <i class="bi bi-images"></i>
+                    <div>
+                        <strong>Your designs</strong>
+                        <span>Access your album collection.</span>
+                    </div>
+                </div>
+
+                <div class="login-feature">
+                    <i class="bi bi-shield-check"></i>
+                    <div>
+                        <strong>Secure access</strong>
+                        <span>Your account stays protected.</span>
+                    </div>
+                </div>
+
+                <div class="login-feature">
+                    <i class="bi bi-stars"></i>
+                    <div>
+                        <strong>Keep creating</strong>
+                        <span>Continue your creative journey.</span>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- RIGHT SIDE -->
+        <div class="login-card">
+
+            <div class="login-card-header">
+
+                <span>WELCOME BACK</span>
+
+                <h2>Login</h2>
+
+                <p>
+                    Enter your details to access your account.
+                </p>
+
+            </div>
+
+
+            <!-- LOGIN FORM -->
+
+            <form
+                action="/somnath/user/login"
+                method="POST"
+                class="login-form"
+            >
+
+                <!-- USERNAME -->
+
+                <div class="login-input-group">
+
+                    <label for="username">
+                        Username
+                    </label>
+
+                    <div class="login-input-wrapper">
+
+                        <i class="bi bi-person"></i>
+
+                        <input
+                            type="text"
+                            id="username"
+                            name="username"
+                            placeholder="Enter your username"
+                            autocomplete="username"
+                            required
+                        >
+
+                    </div>
+
+                </div>
+
+
+                <!-- PASSWORD -->
+
+                <div class="login-input-group">
+
+                    <label for="password">
+                        Password
+                    </label>
+
+                    <div class="login-input-wrapper">
+
+                        <i class="bi bi-lock"></i>
+
+                        <input
+                            type="password"
+                            id="password"
+                            name="password"
+                            placeholder="Enter your password"
+                            autocomplete="current-password"
+                            required
+                        >
+
+                        <button
+                            type="button"
+                            class="login-password-toggle"
+                            onclick="toggleLoginPassword()"
+                            aria-label="Show password"
+                        >
+                            <i
+                                class="bi bi-eye"
+                                id="loginPasswordIcon"
+                            ></i>
+                        </button>
+
+                    </div>
+
+                </div>
+
+
+                <!-- REMEMBER -->
+
+                <div class="login-options">
+
+                    <label class="remember-me">
+
+                        <input
+                            type="checkbox"
+                            name="remember"
+                        >
+
+                        <span>Remember me</span>
+
+                    </label>
+
+                </div>
+
+
+                <!-- SUBMIT -->
+
+                <button
+                    type="submit"
+                    class="login-submit"
+                >
+
+                    Login
+
+                    <i class="bi bi-arrow-right"></i>
+
+                </button>
+
+            </form>
+
+
+            <!-- SIGNUP -->
+
+            <div class="login-signup">
+
+                <span>Don't have an account?</span>
+
+                <a href="/somnath/user/signup">
+                    Create Account
+                </a>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<!-- LOGIN POPUP -->
+
+<% if (error) { %>
+
+<div class="login-popup login-popup-error">
+
+    <i class="bi bi-exclamation-circle"></i>
+
+    <span>
+        <%= error %>
+    </span>
+
+    <button onclick="closeLoginPopup()">
+        ×
+    </button>
+
+</div>
+
+<% } %>
+
+
+<% if (message) { %>
+
+<div class="login-popup login-popup-success">
+
+    <i class="bi bi-check-circle"></i>
+
+    <span>
+        <%= message %>
+    </span>
+
+    <button onclick="closeLoginPopup()">
+        ×
+    </button>
+
+</div>
+
+<% } %>
+
+
+<script>
+
+function toggleLoginPassword() {
+
+    const password =
+        document.getElementById("password");
+
+    const icon =
+        document.getElementById("loginPasswordIcon");
+
+
+    if (password.type === "password") {
+
+        password.type = "text";
+
+        icon.classList.remove("bi-eye");
+
+        icon.classList.add("bi-eye-slash");
+
+    } else {
+
+        password.type = "password";
+
+        icon.classList.remove("bi-eye-slash");
+
+        icon.classList.add("bi-eye");
+
+    }
+
+}
+
+
+function closeLoginPopup() {
+
+    const popup =
+        document.querySelector(".login-popup");
+
+    if (popup) {
+        popup.remove();
+    }
+
+}
+
+
+setTimeout(() => {
+
+    closeLoginPopup();
+
+}, 4000);
+
+</script>

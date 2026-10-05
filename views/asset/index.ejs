@@ -1,0 +1,351 @@
+<% layout("/layouts/boilerplate.ejs") %>
+
+    <div class="store-page">
+
+        <!-- =========================
+         STORE HERO
+    ========================== -->
+        <section class="store-hero">
+
+            <div class="store-hero-content">
+
+                <span class="store-tag">
+                    SOMNATH ALBUMS
+                </span>
+
+                <h1>
+                    Our
+                    <span>Assets</span>
+                </h1>
+
+                <p>
+                    Explore our collection of beautifully designed album assets,
+                    crafted to turn your precious memories into timeless stories.
+                </p>
+
+            </div>
+
+            <div class="store-hero-decoration">
+
+                <div class="store-circle circle-one"></div>
+                <div class="store-circle circle-two"></div>
+
+                <div class="store-frame">
+
+                    <i class="bi bi-images"></i>
+
+                    <span>
+                        Our Collection
+                    </span>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =========================
+         PRE WEDDING
+    ========================== -->
+        <section class="album-section">
+
+            <div class="section-header">
+
+                <div class="section-heading-content">
+
+                    <span class="store-section-label">
+                        COLLECTION 01
+                    </span>
+
+                    <h2>
+                        Pre <span>Wedding</span>
+                    </h2>
+
+                    <p>
+                        Beautiful pre-wedding album designs
+                        for your special moments.
+                    </p>
+
+                </div>
+
+                <a href="/somnath/store/prewed/group" class="view-all">
+                    View All
+                    <i class="bi bi-arrow-right"></i>
+                </a>
+
+            </div>
+
+
+            <div class="album-grid">
+
+                <% let prewedCount=0; %>
+
+                    <% for(let asset of assets) { %>
+
+                        <% if(asset.name=="prewed" && prewedCount < 4) { %>
+
+                            <a href="<%= asset.url %>" class="album-card" target="_blank">
+
+                                <div class="album-image">
+
+                                    <img src="<%= asset.url %>" alt="Pre Wedding Album" loading="lazy">
+
+                                    <div class="album-overlay">
+
+                                        <span>
+                                            View Asset
+                                        </span>
+
+                                        <i class="bi bi-arrow-up-right"></i>
+
+                                    </div>
+
+                                </div>
+
+                            </a>
+
+                            <% prewedCount++; %>
+
+                                <% } %>
+
+                                    <% } %>
+
+            </div>
+
+        </section>
+
+
+        <!-- =========================
+         WEDDING
+    ========================== -->
+        <section class="album-section">
+
+            <div class="section-header">
+
+                <div class="section-heading-content">
+
+                    <span class="store-section-label">
+                        COLLECTION 02
+                    </span>
+
+                    <h2>
+                        <span>Wedding</span>
+                    </h2>
+
+                    <p>
+                        Elegant wedding album designs
+                        made for unforgettable memories.
+                    </p>
+
+                </div>
+
+                <a href="/somnath/store/wed/group" class="view-all">
+                    View All
+                    <i class="bi bi-arrow-right"></i>
+                </a>
+
+            </div>
+
+
+            <div class="album-grid">
+
+                <% let wedCount=0; %>
+
+                    <% for(let asset of assets) { %>
+
+                        <% if(asset.name=="wed" && wedCount < 4) { %>
+
+                            <a href="<%= asset.url %>" class="album-card" target="_blank">
+
+                                <div class="album-image">
+
+                                    <img src="<%= asset.url %>" alt="Wedding Album" loading="lazy">
+
+                                    <div class="album-overlay">
+
+                                        <span>
+                                            View Asset
+                                        </span>
+
+                                        <i class="bi bi-arrow-up-right"></i>
+
+                                    </div>
+
+                                </div>
+
+                            </a>
+
+                            <% wedCount++; %>
+
+                                <% } %>
+
+                                    <% } %>
+
+            </div>
+
+        </section>
+
+
+        <!-- =========================
+         RITUALS
+    ========================== -->
+        <section class="album-section">
+
+            <div class="section-header">
+
+                <div class="section-heading-content">
+
+                    <span class="store-section-label">
+                        COLLECTION 03
+                    </span>
+
+                    <h2>
+                        <span>Rituals</span>
+                    </h2>
+
+                    <p>
+                        Traditional and elegant designs
+                        for every meaningful ceremony.
+                    </p>
+
+                </div>
+
+                <a href="/somnath/store/retu/group" class="view-all">
+                    View All
+                    <i class="bi bi-arrow-right"></i>
+                </a>
+
+            </div>
+
+
+            <div class="album-grid">
+
+                <% let retuCount=0; %>
+
+                    <% for(let asset of assets) { %>
+
+                        <% if(asset.name=="retu" && retuCount < 4) { %>
+
+                            <a href="<%= asset.url %>" class="album-card" target="_blank">
+
+                                <div class="album-image">
+
+                                    <img src="<%= asset.url %>" alt="Rituals Album" loading="lazy">
+
+                                    <div class="album-overlay">
+
+                                        <span>
+                                            View Asset
+                                        </span>
+
+                                        <i class="bi bi-arrow-up-right"></i>
+
+                                    </div>
+
+                                </div>
+
+                            </a>
+
+                            <% retuCount++; %>
+
+                                <% } %>
+
+                                    <% } %>
+
+            </div>
+
+        </section>
+
+
+        <!-- =========================
+         EBOOKS
+    ========================== -->
+        <section class="album-section ebook-section">
+
+            <div class="section-header">
+
+                <div class="section-heading-content">
+
+                    <span class="store-section-label">
+                        COLLECTION 04
+                    </span>
+
+                    <h2>
+                        <span>Ebooks</span>
+                    </h2>
+
+                    <p>
+                        Explore our upcoming collection of
+                        creative and useful ebooks.
+                    </p>
+
+                </div>
+
+                <span class="coming-soon">
+                    Coming Soon
+                </span>
+
+            </div>
+
+
+            <div class="ebook-coming-soon">
+
+                <div class="ebook-decoration ebook-decoration-one"></div>
+                <div class="ebook-decoration ebook-decoration-two"></div>
+
+                <div class="ebook-content">
+
+                    <div class="ebook-icon">
+                        <i class="bi bi-book-half"></i>
+                    </div>
+
+                    <span class="ebook-label">
+                        SOMETHING SPECIAL IS COMING
+                    </span>
+
+                    <h3>
+                        Coming Soon
+                    </h3>
+
+                    <p>
+                        Our ebook collection is currently being prepared.
+                        Stay tuned for something special.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =========================
+         BOTTOM CTA
+    ========================== -->
+        <section class="store-cta">
+
+            <div>
+
+                <span>
+                    LOOKING FOR SOMETHING SPECIAL?
+                </span>
+
+                <h2>
+                    Let's Create Something
+                    <strong>Beautiful.</strong>
+                </h2>
+
+            </div>
+
+            <a href="/somnath/contact">
+
+                Contact Us
+
+                <i class="bi bi-arrow-right"></i>
+
+            </a>
+
+        </section>
+
+    </div>

@@ -1,0 +1,226 @@
+<% layout("/layouts/boilerplate.ejs") %>
+
+    <div class="asset-page">
+
+        <!-- =========================
+         PAGE HERO
+    ========================== -->
+        <section class="asset-page-hero">
+
+            <div class="asset-page-hero-content">
+
+                <span class="asset-page-label">
+                    SOMNATH ALBUMS · COLLECTION
+                </span>
+
+                <h1>
+                    <%= assets[0].name %>
+                        <span>Assets</span>
+                </h1>
+
+                <p>
+                    Explore our complete collection of
+                    <%= assets[0].name %> album designs,
+                        carefully created for beautiful memories.
+                </p>
+
+            </div>
+
+
+            <!-- DECORATION -->
+            <div class="asset-page-decoration">
+
+                <div class="asset-decoration-circle circle-one"></div>
+
+                <div class="asset-decoration-circle circle-two"></div>
+
+                <div class="asset-decoration-frame">
+
+                    <i class="bi bi-images"></i>
+
+                    <span>
+                        <%= assets.length %> Designs
+                    </span>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =========================
+         ASSET COLLECTION
+    ========================== -->
+        <section class="asset-section">
+
+            <!-- SECTION HEADER -->
+            <div class="asset-section-header">
+
+                <div>
+
+                    <span class="asset-section-label">
+                        EXPLORE COLLECTION
+                    </span>
+
+                    <h2>
+                        Available
+                        <span>Designs</span>
+                    </h2>
+
+                    <p>
+                        Browse through our collection of
+                        <%= assets[0].name %> album designs.
+                    </p>
+
+                </div>
+
+
+                <!-- DESIGN COUNT -->
+                <div class="asset-count">
+
+                    <strong>
+                        <%= assets.length %>
+                    </strong>
+
+                    <span>
+                        Designs
+                    </span>
+
+                </div>
+
+            </div>
+
+
+            <!-- =========================
+             ASSET GRID
+        ========================== -->
+            <div class="asset-list">
+
+                <% assets.forEach((asset, index)=> { %>
+
+                    <a href="/somnath/store/<%= asset._id %>/single" class="asset-card">
+
+                        <!-- IMAGE -->
+                        <div class="asset-card-image">
+
+                            <img src="<%= asset.url %>" alt="<%= asset.name %> album design" loading="lazy">
+
+
+                            <!-- HOVER OVERLAY -->
+                            <div class="asset-card-overlay">
+
+                                <span>
+                                    View Design
+
+                                    <i class="bi bi-arrow-up-right"></i>
+                                </span>
+
+                            </div>
+
+
+                            <!-- NUMBER -->
+                            <div class="asset-card-number">
+
+                                <%= String(index + 1).padStart(2, "0" ) %>
+
+                            </div>
+
+                        </div>
+
+
+                        <!-- CONTENT -->
+                        <div class="asset-card-content">
+
+                            <div>
+
+                                <span class="asset-number">
+                                    DESIGN <%= String(index + 1).padStart(2, "0" ) %>
+                                </span>
+
+                                <h3>
+                                    <%= asset.name %>
+                                </h3>
+
+                            </div>
+
+
+                            <span class="asset-view">
+
+                                View Asset
+
+                                <i class="bi bi-arrow-right"></i>
+
+                            </span>
+
+                        </div>
+
+                    </a>
+
+                    <% }) %>
+
+            </div>
+
+        </section>
+
+
+        <!-- =========================
+         ACTION SECTION
+    ========================== -->
+        <section class="asset-actions-section">
+
+            <div class="asset-actions-content">
+
+                <span>
+                    <%= isAdmin ? "MANAGE COLLECTION" : "FIND YOUR PERFECT DESIGN" %>
+                </span>
+
+                <h2>
+
+                    <%= isAdmin ? "Add More Designs" : "Ready To Choose Your Design?" %>
+
+                </h2>
+
+                <p>
+
+                    <%= isAdmin ? "Keep your collection updated by adding new album designs."
+                        : "Choose a design you love and take the next step toward creating your album." %>
+
+                </p>
+
+            </div>
+
+
+            <!-- =========================
+             ACTION BUTTON
+        ========================== -->
+
+            <div class="asset-actions">
+
+                <% if(isAdmin) { %>
+
+                    <a href="/somnath/store/new?name=<%= assets[0].name %>" class="asset-btn asset-btn-primary">
+
+                        <i class="bi bi-plus-lg"></i>
+
+                        Add Asset
+
+                    </a>
+
+                    <% } else { %>
+
+                        <a href="/somnath/store/<%= assets[0].name %>/buy" class="asset-btn asset-btn-secondary">
+
+                            <i class="bi bi-cart3"></i>
+
+                            Buy Asset
+
+                        </a>
+
+                        <% } %>
+
+            </div>
+
+        </section>
+
+    </div>

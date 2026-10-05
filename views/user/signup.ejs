@@ -1,0 +1,280 @@
+<% layout("/layouts/boilerplate.ejs") %>
+
+    <div class="signup-page">
+
+        <div class="signup-container">
+
+            <!-- LEFT SIDE -->
+            <div class="signup-info">
+
+                <span class="signup-small-title">
+                    SOMNATH ALBUMS
+                </span>
+
+                <h1>
+                    Create your<br>
+                    <span>account.</span>
+                </h1>
+
+                <p>
+                    Join Somnath Albums and manage your album designs,
+                    creative assets and collections in one place.
+                </p>
+
+                <div class="signup-features">
+
+                    <div class="signup-feature">
+                        <i class="bi bi-images"></i>
+                        <div>
+                            <strong>Manage your designs</strong>
+                            <span>Keep your album assets organized.</span>
+                        </div>
+                    </div>
+
+                    <div class="signup-feature">
+                        <i class="bi bi-shield-check"></i>
+                        <div>
+                            <strong>Secure account</strong>
+                            <span>Your account stays protected.</span>
+                        </div>
+                    </div>
+
+                    <div class="signup-feature">
+                        <i class="bi bi-stars"></i>
+                        <div>
+                            <strong>Creative collection</strong>
+                            <span>Explore beautiful album designs.</span>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- RIGHT SIDE -->
+            <div class="signup-card">
+
+                <div class="signup-card-header">
+
+                    <span>GET STARTED</span>
+
+                    <h2>Create Account</h2>
+
+                    <p>
+                        Enter your details to create your account.
+                    </p>
+
+                </div>
+
+
+                <form action="/somnath/user/signup" method="POST" class="signup-form">
+
+                    <!-- USERNAME -->
+                    <div class="signup-input-group">
+
+                        <label for="username">
+                            Username
+                        </label>
+
+                        <div class="signup-input-wrapper">
+
+                            <i class="bi bi-person"></i>
+
+                            <input type="text" id="username" name="username" placeholder="Enter your username"
+                                autocomplete="username" required>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- EMAIL -->
+                    <div class="signup-input-group">
+
+                        <label for="email">
+                            Email Address
+                        </label>
+
+                        <div class="signup-input-wrapper">
+
+                            <i class="bi bi-envelope"></i>
+
+                            <input type="email" id="email" name="email" placeholder="Enter your email"
+                                autocomplete="email" required>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- PASSWORD -->
+                    <div class="signup-input-group">
+
+                        <label for="password">
+                            Password
+                        </label>
+
+                        <div class="signup-input-wrapper">
+
+                            <i class="bi bi-lock"></i>
+
+                            <input type="password" id="password" name="password" placeholder="Create a password"
+                                autocomplete="new-password" required>
+
+                            <button type="button" class="password-toggle" onclick="togglePassword()"
+                                aria-label="Show password">
+                                <i class="bi bi-eye" id="passwordIcon"></i>
+                            </button>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- TERMS -->
+                    <div class="signup-terms">
+
+                        <input type="checkbox" id="terms" required>
+
+                        <label for="terms">
+                            I agree to the terms and conditions.
+                        </label>
+
+                    </div>
+
+
+                    <!-- SUBMIT -->
+                    <button type="submit" class="signup-submit">
+                        Create Account
+
+                        <i class="bi bi-arrow-right"></i>
+                    </button>
+
+                </form>
+
+
+                <!-- LOGIN -->
+                <div class="signup-login">
+
+                    <span>
+                        Already have an account?
+                    </span>
+
+                    <a href="/somnath/user/login">
+                        Login
+                    </a>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- ===============================
+     ERROR / SUCCESS POPUP
+================================ -->
+
+    <% if (error) { %>
+
+        <div class="signup-popup signup-popup-error">
+
+            <i class="bi bi-exclamation-circle"></i>
+
+            <span>
+                <%= error %>
+            </span>
+
+            <button type="button" onclick="closeSignupPopup()" aria-label="Close">
+                &times;
+            </button>
+
+        </div>
+
+        <% } %>
+
+
+            <% if (message) { %>
+
+                <div class="signup-popup signup-popup-success">
+
+                    <i class="bi bi-check-circle"></i>
+
+                    <span>
+                        <%= message %>
+                    </span>
+
+                    <button type="button" onclick="closeSignupPopup()" aria-label="Close">
+                        &times;
+                    </button>
+
+                </div>
+
+                <% } %>
+
+
+                    <script>
+
+                        // ===============================
+                        // PASSWORD TOGGLE
+                        // ===============================
+
+                        function togglePassword() {
+
+                            const password =
+                                document.getElementById("password");
+
+                            const icon =
+                                document.getElementById("passwordIcon");
+
+                            if (password.type === "password") {
+
+                                password.type = "text";
+
+                                icon.classList.remove("bi-eye");
+
+                                icon.classList.add("bi-eye-slash");
+
+                            } else {
+
+                                password.type = "password";
+
+                                icon.classList.remove("bi-eye-slash");
+
+                                icon.classList.add("bi-eye");
+
+                            }
+
+                        }
+
+
+                        // ===============================
+                        // CLOSE POPUP
+                        // ===============================
+
+                        function closeSignupPopup() {
+
+                            const popup =
+                                document.querySelector(".signup-popup");
+
+                            if (popup) {
+                                popup.remove();
+                            }
+
+                        }
+
+
+                        // ===============================
+                        // AUTO CLOSE POPUP
+                        // ===============================
+
+                        setTimeout(() => {
+
+                            closeSignupPopup();
+
+                        }, 4000);
+
+                    </script>
